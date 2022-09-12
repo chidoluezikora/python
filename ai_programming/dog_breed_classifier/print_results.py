@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/print_results.py
 #                                                                             
-# PROGRAMMER: 
-# DATE CREATED:
+# PROGRAMMER:  Chidolue Zikora
+# DATE CREATED:  12.09.2022
 # REVISED DATE: 
 # PURPOSE: Create a function print_results that prints the results statistics
 #          from the results statistics dictionary (results_stats_dic). It 
@@ -62,5 +62,26 @@ def print_results(results_dic, results_stats_dic, model,
     Returns:
            None - simply printing results.
     """    
-    None
-                
+    print('Summary')
+    print('CNN model architecture used: {}'.format(model))
+    print('Number of Images: {}'.format(results_stats_dic['n_images']))
+    print('Number of Dog Images: {}'.format(results_stats_dic['n_dogs_img']))
+    print('Number of "Not-a" Dog Images: {}'.format(results_stats_dic['n_notdogs_img']))
+    print('% Correct Dogs: {}'.format(results_stats_dic['pct_correct_dogs']))
+    print('% Correct Breed: {}'.format(results_stats_dic['pct_correct_breed']))
+    print('% Correct "Not-a" Dog: {}'.format(results_stats_dic['pct_correct_notdogs']))
+    print('% Match: {}'.format(((results_stats_dic['n_dogs_img'] + results_stats_dic['n_notdogs_img']) / results_stats_dic['n_images']) * 100))
+
+    if print_incorrect_dogs and results_stats_dic['n_correct_dogs'] + results_stats_dic['n_correct_notdogs'] !=  results_stats_dic['n_images']:
+      print('\n\nMisclassifed Dogs:')
+      for key in results_dic:
+        if sum(results_dic[key][3:]) == 1:
+          print('Pet image label: {}'.format(results_dic[key][0]))
+          print('Classifier label: {}'.format(results_dic[key][1]))
+
+    if print_incorrect_breed and results_stats_dic['n_correct_dogs'] != results_stats_dic['n_correct_breed']:
+      print('\n\nMisclassified Breeds of Dogs')
+      for key in results_dic:
+        if sum(results_dic[key][3:]) == 2 and results_dic[key][2] == 0:
+          print('Pet image label: {}'.format(results_dic[key][0]))
+          print('Classifier label: {}'.format(results_dic[key][1]))
