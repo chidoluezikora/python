@@ -323,7 +323,7 @@ Number of "Not-a" Dog Images: 10
 % Correct Dogs: 100.0
 % Correct Breed: 93.33333333333333
 % Correct "Not-a" Dog: 100.0
-% Match: 100.0
+% Match: 87.5
 
 
 Misclassified Breeds of Dogs

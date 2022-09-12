@@ -70,7 +70,7 @@ def print_results(results_dic, results_stats_dic, model,
     print('% Correct Dogs: {}'.format(results_stats_dic['pct_correct_dogs']))
     print('% Correct Breed: {}'.format(results_stats_dic['pct_correct_breed']))
     print('% Correct "Not-a" Dog: {}'.format(results_stats_dic['pct_correct_notdogs']))
-    print('% Match: {}'.format(((results_stats_dic['n_dogs_img'] + results_stats_dic['n_notdogs_img']) / results_stats_dic['n_images']) * 100))
+    print('% Match: {}'.format(results_stats_dic['pct_label_match']))
 
     if print_incorrect_dogs and results_stats_dic['n_correct_dogs'] + results_stats_dic['n_correct_notdogs'] !=  results_stats_dic['n_images']:
       print('\n\nMisclassifed Dogs:')

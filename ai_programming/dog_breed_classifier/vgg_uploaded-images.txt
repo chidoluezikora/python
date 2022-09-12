@@ -65,6 +65,6 @@ Number of "Not-a" Dog Images: 2
 % Correct Dogs: 100.0
 % Correct Breed: 100.0
 % Correct "Not-a" Dog: 100.0
-% Match: 100.0
+% Match: 75.0
 
 ** Total Elapsed Runtime: 0:59:59
